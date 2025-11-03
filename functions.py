@@ -36,4 +36,4 @@ def descriptive_stats(da):
     min_var = np.min(df)
     print(mean_var, stdev_var, max_var, min_var)
 
-return mean_var, stdev_var, max_var, min_var
+    return mean_var, stdev_var, max_var, min_var
