@@ -8,6 +8,7 @@ def fun_import_data(file_path, file_name, column_index, row_index):
     select_variable = df[column_index]
     select_data = select_variable[row_index]
     print(select_data)
+    return select_data
 
 fun_import_data('/Users/averyrubins/data/ev228_data/', 'KRDU_temp_188708-202508.csv', 'JAN', 118)
 fun_import_data('/Users/averyrubins/data/ev228_data/Practical4_Data/', 'AYW00090001_temp_195702-202508.csv', 'JAN', 7)

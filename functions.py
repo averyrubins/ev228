@@ -37,16 +37,13 @@ def map(in_da, out_path='', out_name=''):
     lons = in_da.longitude
     lats = in_da.latitude
 
-    path = '/Users/averyrubins/data/ev228_data/'
-    filename = 'era5_10mwind_1980-1989.nc'
-    out_path = '/Users/averyrubins/data//ev228_data/'
-    out_filename = 'era5.png'
-
-    da = import_gridded(file_path=path + filename, var='si10')
-    da_timemn = da.mean(dim='valid_time')
-    da_toplot = da_timemn - 273.15
-    map(da_toplot, out_path=out_path, out_name=out_filename)
-    plt.savefig(out_path + out_name, dpi=400) 
+    image = plt.pcolormesh(lons, lats, in_da)
+    plt.xlabel('longitude')
+    plt.ylabel('latitude')
+    plt.title('ERA5 10m Wind Speed, 1980-1989 mean')
+    cb = plt.colorbar(image, shrink=.75, orientation="vertical", pad=.02)
+    cb.set_label('m/s')
+    plt.savefig(out_path + out_name, dpi=400)
 
 def descriptive_stats(da):
     mean_var = np.mean(df)
