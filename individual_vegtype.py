@@ -8,8 +8,9 @@ import functions as fn
 from mpl_toolkits.basemap import Basemap
 
 # code adapted from https://matplotlib.org/basemap/stable/users/mill.html 
-m = Basemap(projection='mill',llcrnrlat=-90,urcrnrlat=90,\
-            llcrnrlon=-180,urcrnrlon=180,resolution='c')
+# change latitude and longitude, llcrnrlat means lower left corner latitute
+m = Basemap(projection='mill',llcrnrlat=34,urcrnrlat=42,\
+            llcrnrlon=-102,urcrnrlon=-108,resolution='c')
 m.drawcoastlines()
 m.fillcontinents(color='coral',lake_color='aqua')
 # draw parallels and meridians.
