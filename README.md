@@ -3,7 +3,9 @@ analysis of environmental data - individual
 
 # individiual data story
 project summary: I am studying vegetation type in the Southern Rockies compared to mean surface temperature throughout the region, to study how vegetation impacts wildfire likelihood.
+
 code index: 
+
 AI statement: I did not use generative AI on this assigment.
 
 # practical 4
