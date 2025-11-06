@@ -5,6 +5,7 @@ analysis of environmental data - individual
 project summary: I am studying vegetation type in the Southern Rockies compared to mean surface temperature throughout the region, to study how vegetation impacts wildfire likelihood.
 
 code index: 
+functions.py contains functions to import .csv and .nc files, as well as create figures from timeseries and gridded data. I need to change the file name/path and title in this index whenever I create a new figure.
 
 AI statement: I did not use generative AI on this assigment.
 
