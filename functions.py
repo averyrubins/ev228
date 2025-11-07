@@ -23,11 +23,11 @@ def timeseries(in_df, in_x=None, out_path='', out_name=''):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    plt.plot(in_x, in_df, color='#dc6b2b', linewidth=2.5)
+    plt.plot(in_x, in_df, color='hotpink', linewidth=2.5)
     plt.xlabel('years')
-    plt.xlim(1892, 2025)
+    plt.xlim(1948, 2025)
     plt.ylabel('monthly temperature (deg C)')
-    plt.title('Saint-Louis Airport, Senegal 1892-2025')
+    plt.title('Macquarie Island Research Station 1948-2025')
     plt.savefig(out_path + out_name, dpi=400)
 
 
