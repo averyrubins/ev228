@@ -10,6 +10,10 @@ import functions as fn
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 
+# from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+# code for gridlines wasn't working so commented out for now
+
+
 # importing data and calculating time mean
 file_path = '/Users/averyrubins/data/ev228_data/era5_vegtype_2000-2025.nc'
 fig_path = '/Users/averyrubins/data/ev228_data/'
@@ -47,7 +51,7 @@ da_timemn.plot.pcolormesh(
         # add_colorbar=True,
     ))
 # setting map extent
-ax.set_extent([-114, -101, 34, 46], crs=ccrs.PlateCarree())
+ax.set_extent([-110, -101, 34, 43], crs=ccrs.PlateCarree())
 # adding map features through cartopy.cfeature
 ax.add_feature(cfeature.LAND)
 ax.add_feature(cfeature.COASTLINE)
@@ -55,10 +59,22 @@ ax.add_feature(cfeature.OCEAN, facecolor='lightblue')
 ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.5)
 ax.add_feature(cfeature.RIVERS, facecolor='blue', linewidth=1)
 
+# adding gridlines
+# code adapted from https://scitools.org.uk/cartopy/docs/latest/matplotlib/gridliner.html
+# removing x and y labels from top and right was not working so chose to omit
+
+# gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
+#               linewidth=0.5, color='gray', alpha=0.5, linestyle='--')
+# gl.xlabels_top = False
+# gl.ylabels_left = None
+# gl.xlines = False
+# gl.xformatter = LONGITUDE_FORMATTER
+# gl.yformatter = LATITUDE_FORMATTER
+
+
 plt.xlabel('longitude')
 plt.ylabel('latitude')
 plt.title('Vegetation Type in Southern Rocky Mountains, 2000-2025 mean')
 plt.savefig(out_path + out_name, dpi=400)
 plt.show()
-
-# need to write code to plot vegetation type from ERA5 data onto map, can use matplotlib website for instructions
+# plt.savefig(out_path + out_name, dpi=400) 
