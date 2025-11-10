@@ -22,17 +22,22 @@ da_t2m_timemn = da_t2m.mean(dim='valid_time')
 out_path = file_path
 out_name = fig_name
 
-# creating map of 2m temperature time mean with functions.py
+# print(da_t2m_timemn)
+# did this to see whether data was in kelvin or celsius
+# the data is given in kelvin, so converting to celsius
+celsius = da_t2m_timemn - 273.15
+
 fig = plt.figure(figsize=(8,8))
 ax = plt.axes(projection = ccrs.PlateCarree())
-da_t2m_timemn.plot.pcolormesh(
+image = celsius.plot.pcolormesh(
     x = 'longitude',
     y = 'latitude',
     ax = ax,
+    add_colorbar=False, # need this so it doesn't automatically add a colorbar for some reason
     transform = ccrs.PlateCarree(),
 )
     # setting map extent
-ax.set_extent([-110, -101, 34, 44], crs=ccrs.PlateCarree())
+ax.set_extent([-110, -101, 34, 43], crs=ccrs.PlateCarree())
 # adding map features through cartopy.cfeature
 ax.add_feature(cfeature.LAND)
 ax.add_feature(cfeature.COASTLINE)
@@ -40,9 +45,15 @@ ax.add_feature(cfeature.OCEAN, facecolor='lightblue')
 ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.5)
 ax.add_feature(cfeature.RIVERS, facecolor='blue', linewidth=1)
 
+
 plt.xlabel('longitude')
 plt.ylabel('latitude')
 plt.title('2m temperature in Southern Rocky Mountains, 2000-2025 mean')
-plt.show()
 
-# plt.savefig(out_path + out_name, dpi=400) 
+# create colorbar
+cb = plt.colorbar(image, shrink=.75, orientation="vertical", pad=.02)
+cb.set_label('deg C')
+# colorbar limits is not working , tried to put vmin=-10, vmax=20 but couldn't figure it out
+
+plt.show()
+plt.savefig(out_path + out_name, dpi=400) 
