@@ -39,7 +39,7 @@ image = da_timemn.plot.pcolormesh(
     x = 'longitude',
     y = 'latitude',
     ax = ax,
-    add_colorbar=False,
+    add_colorbar=False, # need this so it doesn't automatically add a colorbar for some reason
     transform = ccrs.PlateCarree(),
 # create discrete color bar assigned to specific values
 # code adapted from https://gis.stackexchange.com/questions/444791/discrete-colours-in-geopandas-map 
@@ -75,7 +75,7 @@ ax.add_feature(cfeature.RIVERS, facecolor='blue', linewidth=1)
 # gl.xformatter = LONGITUDE_FORMATTER
 # gl.yformatter = LATITUDE_FORMATTER
 
-
+# adding labels and title
 plt.xlabel('longitude')
 plt.ylabel('latitude')
 plt.title('Vegetation Type in the Southern Rocky Mountains')

@@ -27,6 +27,7 @@ out_name = fig_name
 # the data is given in kelvin, so converting to celsius
 celsius = da_t2m_timemn - 273.15
 
+# same code from individual_vegtype.py but adapted for 2m temperature data
 fig = plt.figure(figsize=(8,8))
 ax = plt.axes(projection = ccrs.PlateCarree())
 image = celsius.plot.pcolormesh(
@@ -45,7 +46,7 @@ ax.add_feature(cfeature.OCEAN, facecolor='lightblue')
 ax.add_feature(cfeature.STATES, edgecolor='black', linewidth=0.5)
 ax.add_feature(cfeature.RIVERS, facecolor='blue', linewidth=1)
 
-
+# adding labels and title
 plt.xlabel('longitude')
 plt.ylabel('latitude')
 plt.title('2m temperature in Southern Rocky Mountains, 2000-2025 mean')
